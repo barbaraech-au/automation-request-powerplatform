@@ -15,6 +15,11 @@ A communication and update channel that standardises the receipt of requests, au
 3. **Power Automate (event-driven trigger):** Automated workflow that sends emails with status updates when a record is created or modified.
 4. **Power BI (executive analytics):** Custom DAX measures for monitoring data via a dashboard.
 
+### Business Impact & Key Metrics
+* **Total Manual Hours Evaluated:** 2,460 hours/year identified across submitted initiatives.
+* **Projected Annual Hours Saved:** 1,650 hours/year in high-value savings unlocked from Approved and In-Development automation projects.
+* **100% Communication Automation:** Fully automated status notification pipeline eliminating administrative follow-up overhead.
+
 ---
 
 ## Executive Analytics (Power BI Dashboard)
@@ -53,4 +58,9 @@ Form for submitting an automation request and admin panel. The backend system co
 ![Email Notification Submit](docs/email-request-update.png)
 
 ### Key Email:
-4. **Automated Branding Emails:** Dispatches responsive HTML email templates customized with dynamic request metadata.
+1. **Automated Branding Emails:** Dispatches responsive HTML email templates customized with dynamic request metadata.
+
+## Author
+* **Portfolio Project:** automation-request-power-platform
+* **Technology Focus:** Power Platform (Power Automate, Power Apps, Sharepoint, Power Bi)
+* **Name:** Barbara Contreras
