@@ -1,37 +1,56 @@
 ## Business Problem & Solution
 
-### The Challenge
-Prior to implementing this portal, automation requests were handled through informal channels (emails, chat messages, ad-hoc meetings), leading to:
-* **Lack of Governance:** No centralized tracking or standardized approval workflows.
-* **Invisible ROI:** Inability to quantify potential manual hours saved per business unit.
-* **Data Quality Issues:** Inconsistent department naming (e.g., *"IT"*, *"Tech"*, *"Information Technology"*) breaking reporting accuracy.
-* **Poor Stakeholder Communication:** No automated status visibility for requestors.
+### The challenge
+Before this portal was implemented, automation requests were managed through informal channels (emails, chat messages, ad hoc meetings), which led to:
+* **Lack of record-keeping:** There is no database containing the requests.
+* **Poor communication with stakeholders:** a lack of automated visibility into the status of requests for requesters.
+* **Lack of tracking:** There was no centralised tracking or standardised approval workflows.
+
 
 ### The Solution
-An **End-to-End Governance Framework** that standardizes request intake, automates review communications, and delivers executive insights:
+A communication and update channel that standardises the receipt of requests, automates communications relating to their review, and provides useful information for managers. I designed a four-tier architecture:
 
-1. **Power Apps (Intake UI):** User-friendly form with dynamic department logic (`OtherDepartment` fallback) to maintain data hygiene.
-2. **SharePoint Online (Data Layer):** Structured repository acting as a single source of truth (`Automation_Request_Portal`).
-3. **Power Automate (Governance Engine):** Automated workflow dispatching branded HTML status updates upon record creation or modification.
-4. **Power BI (Executive Analytics):** Power Query ETL pipeline (`Department Clean`) and custom DAX measures for real-time ROI tracking.
-
----
-
-## Business Impact & Key Metrics
-
-* **Potential Manual Hours Evaluated:** **2,170 hours/year** identified across initial submissions.
-* **Approved High-Impact Initiatives:** **3 core projects approved** (*Vendor Invoice RPA*, *Logistics Tracking Sync*, *IT Access Request Script*), unlocking **1,120 hours/year** in immediate manual effort reduction.
-* **100% Communication Automation:** Fully automated status notification pipeline eliminating administrative follow-up overhead.
-* **100% Data Cleanliness:** Seamless dynamic transformation of non-standard department entries via Power Query M.
+1. **Power Apps (user interface):** Form for submitting new requests. Includes an administration panel for the automation department to update requests.
+2. **SharePoint Online (database):** List containing request details to maintain controlled records.
+3. **Power Automate (event-driven trigger):** Automated workflow that sends emails with status updates when a record is created or modified.
+4. **Power BI (executive analytics):** Custom DAX measures for monitoring data via a dashboard.
 
 ---
 
-## Technology Stack Summary
+## Executive Analytics (Power BI Dashboard)
 
-| Layer | Technology | Primary Function |
-| :--- | :--- | :--- |
-| **Frontend** | Power Apps (Canvas) | Form intake, user validation & dynamic UI logic |
-| **Backend / DB** | SharePoint Online | Data repository & schema storage |
-| **Automation** | Power Automate | Event-driven trigger engine & HTML email dispatch |
-| **Analytics** | Power BI | Data modeling, DAX measures & executive visualization |
-| **ETL / Language**| Power Query (M), DAX, HTML/CSS | Data transformation, KPI calculations & email design |
+The executive dashboard provides immediate visibility into total request volume, potential manual hours saved, approval rates, and department distribution.
+
+![Power BI Dashboard](docs/powerbi-dashboard.png)
+
+### Key Analytics Features:
+* **Core Metrics:** Real-time tracking of Total Requests, Total Manual Hours Evaluated, and Projected Annual Hours Saved.
+* **Request chart:** Donut chart analyzing request distribution by status (*New*, *In Assessment*, *Approved*, *In Development*, *Rejected*).
+* **Department chart:** Clustered bar chart highlighting potential manual hours saved across business units.
+* **Table Initiatives Tracker:** Detailed record list.
+
+---
+
+## Automation Flow (Power Apps, Power automate)
+
+Form for submitting an automation request and admin panel. The backend system continuously monitors the data layer to manage approval notifications and stakeholder updates without manual intervention.
+![Power Apps Form Sumbit](docs/powerapps-submit-request.png)
+
+![Power Apps Form Assessment](docs/powerapps-assessment-request.png)
+
+### Key Form:
+1. **Submit Form:** Form for submitting a new automation request.
+2. **Assessment Panel:** Application management panel.
+
+![Power Automate Flow](docs/powerautomate-flow-logic.png)
+
+### Key Flow Actions:
+1. **Trigger:** Fires when a new request is submitted or updated in SharePoint.
+2. **Property Evaluation:** Checks whether the `Status` field has changed to trigger targeted communication.
+
+![Email Notification Submit](docs/email-request-received.png)
+
+![Email Notification Submit](docs/email-request-update.png)
+
+### Key Email:
+4. **Automated Branding Emails:** Dispatches responsive HTML email templates customized with dynamic request metadata.
