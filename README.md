@@ -44,21 +44,21 @@ Form for submitting an automation request and admin panel. The backend system co
 ![Power Apps Form Assessment](docs/powerapps-assessment-request.png)
 
 ### Key Form:
-1. **Submit Form:** Form for submitting a new automation request.
-2. **Assessment Panel:** Application management panel.
+* **Submit Form:** Form for submitting a new automation request.
+* **Assessment Panel:** Application management panel.
 
 ![Power Automate Flow](docs/powerautomate-flow-logic.png)
 
 ### Key Flow Actions:
-1. **Trigger:** Fires when a new request is submitted or updated in SharePoint.
-2. **Property Evaluation:** Checks whether the `Status` field has changed to trigger targeted communication.
+* **Trigger:** Fires when a new request is submitted or updated in SharePoint.
+* **Property Evaluation:** Checks whether the `Status` field has changed to trigger targeted communication.
 
 ![Email Notification Submit](docs/email-request-received.png)
 
 ![Email Notification Submit](docs/email-request-update.png)
 
 ### Key Email:
-1. **Automated Branding Emails:** Dispatches responsive HTML email templates customized with dynamic request metadata.
+* **Automated Branding Emails:** Dispatches responsive HTML email templates customized with dynamic request metadata.
 
 ## Author
 * **Portfolio Project:** automation-request-power-platform
