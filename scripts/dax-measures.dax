@@ -1,0 +1,12 @@
+// ===================================================
+// POWER BI DAX MEASURES - AUTOMATION GOVERNANCE
+// ===================================================
+
+// 1. Total Request Count
+Total Requests = COUNTROWS('Automation_Request_Portal')
+
+// 2. Total Manual Hours
+Total Hours = SUM('Automation_Request_Portal'[CurrentManualHours])
+
+// 3. Total Approved Initiatives Count
+Approved Requests = CALCULATE(COUNTROWS('Automation_Request_Portal'),'Automation_Request_Portal'[Status] = "Approved")
