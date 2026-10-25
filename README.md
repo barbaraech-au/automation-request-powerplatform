@@ -64,3 +64,8 @@ Form for submitting an automation request and admin panel. The backend system co
 * **Portfolio Project:** automation-request-power-platform
 * **Technology Focus:** Power Platform (Power Automate, Power Apps, Sharepoint, Power Bi)
 * **Name:** Barbara Contreras
+
+---
+> [!NOTE]
+> **Data Privacy & Security Disclaimer:**
+> To comply with corporate privacy standards and data protection policies, all internal tenant URLs, proprietary schema names, and specific stakeholder email addresses have been masked, or parameterized across codebase scripts and documentation visuals.
